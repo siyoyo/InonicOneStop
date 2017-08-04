@@ -1,0 +1,16 @@
+page-home {
+    ion-slides {
+        // border: 1px solid;
+        max-height: 400px;
+        padding: 10px;
+        margin: 10px 0;
+    }
+    .image-thumb {
+        height: 50px;
+        width: 50px;
+        margin: auto;
+    }
+    .swiper-wrapper {
+        height: 150px;
+    }
+}

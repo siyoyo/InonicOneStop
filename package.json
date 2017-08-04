@@ -1,0 +1,105 @@
+{
+    "name": "one-stop-click",
+    "version": "0.0.1",
+    "author": "sylva0890",
+    "homepage": "http://ionicframework.com/",
+    "private": true,
+    "scripts": {
+        "clean": "ionic-app-scripts clean",
+        "build": "ionic-app-scripts build",
+        "lint": "ionic-app-scripts lint",
+        "ionic:build": "ionic-app-scripts build",
+        "ionic:serve": "ionic-app-scripts serve"
+    },
+    "dependencies": {
+        "@angular/common": "^4.3.0",
+        "@angular/compiler": "^4.3.0",
+        "@angular/compiler-cli": "^4.3.0",
+        "@angular/core": "^4.3.0",
+        "@angular/forms": "^4.3.0",
+        "@angular/http": "^4.3.0",
+        "@angular/platform-browser": "^4.3.0",
+        "@angular/platform-browser-dynamic": "^4.3.0",
+        "@angular/tsc-wrapped": "^4.3.0",
+        "@ionic-native/core": "^3.14.0",
+        "@ionic-native/facebook": "^4.1.0",
+        "@ionic-native/google-plus": "^4.0.1",
+        "@ionic-native/paypal": "^3.14.0",
+        "@ionic-native/splash-screen": "^3.14.0",
+        "@ionic-native/status-bar": "^3.14.0",
+        "@ionic/cloud-angular": "^0.12.0",
+        "@ionic/storage": "2.0.1",
+        "autoprefixer": "^7.1.2",
+        "cordova-android": "^6.2.3",
+        "cordova-browser": "^4.1.0",
+        "cordova-plugin-console": "^1.0.7",
+        "cordova-plugin-device": "^1.1.6",
+        "cordova-plugin-facebook4": "^1.9.1",
+        "cordova-plugin-googleplus": "git+https://github.com/EddyVerbruggen/cordova-plugin-googleplus.git",
+        "cordova-plugin-splashscreen": "^4.0.3",
+        "cordova-plugin-statusbar": "^2.2.3",
+        "cordova-plugin-whitelist": "git+https://github.com/apache/cordova-plugin-whitelist.git",
+        "font-awesome": "^4.7.0",
+        "ionic-angular": "^3.5.3",
+        "ionic-plugin-keyboard": "^2.2.1",
+        "ionic2-rating": "^1.2.2",
+        "ionicons": "3.0.0",
+        "ng2-cordova-oauth": "0.0.8",
+        "rxjs": "^5.4.2",
+        "sw-toolbox": "3.6.0",
+        "zone.js": "^0.8.13"
+    },
+    "devDependencies": {
+        "@ionic/app-scripts": "1.3.7",
+        "@ionic/cli-plugin-cordova": "1.5.0",
+        "@ionic/cli-plugin-ionic-angular": "1.4.0",
+        "@ionic/cli-plugin-proxy": "1.4.0",
+        "ionic": "3.6.0",
+        "typescript": "2.3.4"
+    },
+    "cordovaPlugins": [
+        "cordova-plugin-device",
+        "cordova-plugin-whitelist",
+        "cordova-plugin-statusbar",
+        "cordova-plugin-console",
+        "cordova-plugin-splashscreen",
+        "ionic-plugin-keyboard",
+        "com.paypal.cordova.mobilesdk"
+    ],
+    "cordovaPlatforms": [
+        {
+            "platform": "android",
+            "version": "",
+            "locator": "android"
+        },
+        {
+            "platform": "ios",
+            "version": "",
+            "locator": "ios"
+        }
+    ],
+    "description": "OneStop Click",
+    "ionic_copy": "./config/copy.config.js",
+    "ionic_sass": "./config/sass.config.js",
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-googleplus": {
+                "REVERSED_CLIENT_ID": "com.googleusercontent.apps.78138799939-lkkvjdb5ndg2jcbhl88es03b2lcrfmvs"
+            },
+            "cordova-plugin-console": {},
+            "cordova-plugin-device": {},
+            "cordova-plugin-splashscreen": {},
+            "cordova-plugin-statusbar": {},
+            "cordova-plugin-whitelist": {},
+            "ionic-plugin-keyboard": {},
+            "cordova-plugin-facebook4": {
+                "APP_ID": "415680508832695",
+                "APP_NAME": "Ionic2-OneStop"
+            }
+        },
+        "platforms": [
+            "android",
+            "browser"
+        ]
+    }
+}

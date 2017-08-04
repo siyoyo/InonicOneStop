@@ -1,0 +1,37 @@
+<ion-header>
+    <ion-navbar color="dark">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Home</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="home" padding>
+    <!--<h3>Welcome inside, {{name}}!</h3>
+    Your Email is: {{email}}
+    <hr>-->
+    <!--<ion-slides *ngFor="let category of categories" pager loop centeredSlides autoplay=5000>
+        <ion-slide *ngFor="let product of category.products" (click)="onProductClick(product)">
+            <h3>{{product.product_name}}</h3>
+        </ion-slide>
+    </ion-slides>-->
+    <div *ngFor="let category of categories; let i=index;">
+        <h3 (click)="onCategoryClick(category)">{{category.name}}</h3>
+        <ion-slides pager loop autoplay=5000>
+            <ion-slide *ngFor="let product of category.products" (click)="onProductClick(product)">
+                <div class="image-thumb">
+                    <img *ngIf="product.images" src="{{product.images[0].image_url}}">
+                </div>
+                <p>
+                    {{product.product_name}}
+                    <!--<ion-icon item-left name="cart"></ion-icon>-->
+                </p>
+            </ion-slide>
+        </ion-slides>
+    </div>
+    <!--<ion-item-group *ngFor="let category of categories">
+        <ion-item-divider light>{{category.name}}</ion-item-divider>
+        <ion-item *ngFor="let product of category.products"></ion-item>
+    </ion-item-group>-->
+</ion-content>
