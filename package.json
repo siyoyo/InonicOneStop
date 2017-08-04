@@ -67,8 +67,7 @@
         "ionic-plugin-keyboard",
         "com.paypal.cordova.mobilesdk"
     ],
-    "cordovaPlatforms": [
-        {
+    "cordovaPlatforms": [{
             "platform": "android",
             "version": "",
             "locator": "android"
