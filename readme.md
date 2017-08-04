@@ -4,7 +4,8 @@
 ## Installation Step
 1.	Open CMD or Terminal on your computer.
 2.	Navigate to your project folder.
-3.	Run this command on terminal `npm install`.
+3.	Install Ionic Cordova run this command on terminal `npm install -g cordova ionic`
+4.	Run this command on terminal `npm install`.
 
 ## Build Platform
 - To build platform on ionic you can run this command on terminal
