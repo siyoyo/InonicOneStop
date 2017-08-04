@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, AlertController, MenuController } from 'ionic-angular';
+import { Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms';
 import { AuthService } from '../../providers/auth-service';
 
 /**
@@ -16,9 +17,18 @@ import { AuthService } from '../../providers/auth-service';
 export class RegisterPage {
   createSuccess = false;
   registerCredentials = { email: '', password: '', password_confirmation: '', name: '' };
+  myForm:FormGroup;
 
-  constructor(private nav: NavController, private menu: MenuController, private auth: AuthService, private alertCtrl: AlertController) {
+  constructor(private nav: NavController, private menu: MenuController, 
+    private auth: AuthService, private alertCtrl: AlertController,
+		public formBuilder: FormBuilder) {
     menu.swipeEnable(false);
+    this.myForm = formBuilder.group({
+      name: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', [Validators.required, Validators.min(6)]],
+      password_confirmation: ['', Validators.required]
+    });
   }
 
   public register() {

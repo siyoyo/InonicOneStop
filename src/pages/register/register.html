@@ -11,24 +11,24 @@
 
     <div class="register-header">Register new account</div>
     <div class="login-box">
-        <form (ngSubmit)="register()" #registerForm="ngForm">
+        <form (ngSubmit)="register()" [formGroup]="myForm">
             <ion-row>
                 <ion-col>
                     <ion-list inset>
                         <ion-item>
-                            <ion-input type="text" placeholder="Name" name="name" [(ngModel)]="registerCredentials.name" required></ion-input>
+                            <ion-input type="text" placeholder="Name" formControlName="name" [(ngModel)]="registerCredentials.name"></ion-input>
                         </ion-item>
 
                         <ion-item>
-                            <ion-input type="password" placeholder="Password" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
+                            <ion-input type="password" placeholder="Password" formControlName="password" [(ngModel)]="registerCredentials.password"></ion-input>
                         </ion-item>
 
                         <ion-item>
-                            <ion-input type="password" placeholder="Re-type Password" name="password_confirmation" [(ngModel)]="registerCredentials.password_confirmation" required></ion-input>
+                            <ion-input type="password" placeholder="Re-type Password" formControlName="password_confirmation" [(ngModel)]="registerCredentials.password_confirmation"></ion-input>
                         </ion-item>
 
                         <ion-item>
-                            <ion-input type="email" placeholder="YourEmail@email.com" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+                            <ion-input type="email" placeholder="YourEmail@email.com" formControlName="email" [(ngModel)]="registerCredentials.email"></ion-input>
                         </ion-item>
 
                     </ion-list>
@@ -37,7 +37,7 @@
 
             <ion-row>
                 <ion-col class="signup-col">
-                    <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Register</button>
+                    <button ion-button class="submit-btn" full type="submit" [disabled]="!myForm.valid">Register</button>
                 </ion-col>
             </ion-row>
 
