@@ -9,43 +9,36 @@
 </ion-navbar>
 <ion-content class="login-content" padding>
 
-    <div class="register-header">Register new account</div>
     <div class="login-box">
         <form (ngSubmit)="register()" [formGroup]="myForm">
-            <ion-row>
-                <ion-col>
-                    <ion-list inset>
-                        <ion-item>
-                            <ion-input type="text" placeholder="Name" formControlName="name" [(ngModel)]="registerCredentials.name"></ion-input>
-                        </ion-item>
+            <ion-list>
+                <ion-item>
+                    <ion-label floating>Name</ion-label>
+                    <ion-input clearInput type="text" formControlName="name" [(ngModel)]="registerCredentials.name"></ion-input>
+                </ion-item>
 
-                        <ion-item>
-                            <ion-input type="password" placeholder="Password" formControlName="password" [(ngModel)]="registerCredentials.password"></ion-input>
-                        </ion-item>
+                <ion-item>
+                    <ion-label floating>Password</ion-label>
+                    <ion-input clearInput type="password" formControlName="password" [(ngModel)]="registerCredentials.password"></ion-input>
+                </ion-item>
 
-                        <ion-item>
-                            <ion-input type="password" placeholder="Re-type Password" formControlName="password_confirmation" [(ngModel)]="registerCredentials.password_confirmation"></ion-input>
-                        </ion-item>
+                <ion-item>
+                    <ion-label floating>Re-type Password</ion-label>
+                    <ion-input clearInput type="password" formControlName="password_confirmation" [(ngModel)]="registerCredentials.password_confirmation"></ion-input>
+                </ion-item>
 
-                        <ion-item>
-                            <ion-input type="email" placeholder="YourEmail@email.com" formControlName="email" [(ngModel)]="registerCredentials.email"></ion-input>
-                        </ion-item>
-
-                    </ion-list>
-                </ion-col>
-            </ion-row>
-
-            <ion-row>
-                <ion-col class="signup-col">
-                    <button ion-button class="submit-btn" full type="submit" [disabled]="!myForm.valid">Register</button>
-                </ion-col>
-            </ion-row>
-
+                <ion-item>
+                    <ion-label floating>Email</ion-label>
+                    <ion-input clearInput type="email" formControlName="email" [(ngModel)]="registerCredentials.email"></ion-input>
+                </ion-item>
+                <button ion-button class="submit-btn" full type="submit" [disabled]="!myForm.valid">Register</button>
+            </ion-list>
         </form>
-        <ion-row>
+        <button ion-button class="text-btn" block clear (click)="backToHome()">Already have an account ?</button>
+        <!-- <ion-row>
             <ion-col class="signup-col">
                 <button ion-button class="login-btn" block clear (click)="backToHome()">Back</button>
             </ion-col>
-        </ion-row>
+        </ion-row> -->
     </div>
 </ion-content>

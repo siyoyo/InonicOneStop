@@ -6,6 +6,7 @@
 2.	Navigate to your project folder.
 3.	Install Ionic Cordova run this command on terminal `npm install -g cordova ionic`
 4.	Run this command on terminal `npm install`.
+5.	Go to [Project Folder]/src/config.ts to configure backend address and other static value
 
 ## Build Platform
 - To build platform on ionic you can run this command on terminal
