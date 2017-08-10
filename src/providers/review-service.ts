@@ -20,10 +20,8 @@ export class ReviewService {
     // console.log('Hello ReviewService Provider');
   }
 
-  public getReviews(token: String, token_type: String, id:Number) {
+  public getReviews(id:Number) {
       let headers = new Headers();
-      headers.append('Content-Type', 'application/json');
-      headers.append('Authorization', token_type+' ' + token);
 
       return Observable.create(observer => {
       this.http.get(`${this.backendUrl}/api/reviews/${id}`, {headers: headers})

@@ -41,11 +41,10 @@ export class MyApp {
     
     prod.categoryChanged.subscribe(categories => {
       this.pages = [];
-      console.log(categories);
       categories.forEach(element => {
         this.pages.push( { title: element.name, component: 'CategoryPage', parameter: {'category':element} } );
       });
-      console.log(this.pages);
+      // console.log(this.pages);
     });
   }
   
@@ -54,6 +53,10 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.push(page.component, page.parameter, {animate: true, direction: 'forward'});
     // this.nav.setRoot(page.component, page.parameter);
+  }
+
+  public openCartPage() {
+    this.nav.push('CartPage', {}, {animate: true, direction: 'forward'});
   }
 
   public logout() { 

@@ -23,6 +23,15 @@
                 <ion-icon item-left name="radio-button-off" ></ion-icon>
                 {{p.title}}
             </button>
+            <hr>
+            <button menuClose ion-item (click)="openCartPage()">
+                <ion-icon item-left name="cart" ></ion-icon>
+                Cart
+            </button>
+            <button menuClose ion-item (click)="openCartPage()">
+                <ion-icon item-left name="person" ></ion-icon>
+                My Profile
+            </button>
         </ion-list>
     </ion-content>
 

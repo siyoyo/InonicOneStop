@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController, LoadingController, Loading, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, MenuController } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service';
 /**
@@ -18,8 +18,7 @@ export class ForgotPasswordPage {
   status = false;
 
   constructor(private nav: NavController, private menu: MenuController, 
-    private authService: AuthService, private alertCtrl: AlertController, 
-    private loadingCtrl: LoadingController) {   
+    private authService: AuthService, private alertCtrl: AlertController) {   
       menu.swipeEnable(false);
   }
 

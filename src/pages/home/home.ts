@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, LoadingController, Loading, Platform, App } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController, Loading, Platform } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service';
 import { ProductService } from '../../providers/product-service';
+import { CartProvider } from '../../providers/cart';
 
 // import { MyApp } from '../../app/app.component';
 
@@ -25,10 +26,13 @@ export class HomePage {
 
   constructor(private navCtrl: NavController, private navParams: NavParams, 
   private auth: AuthService, private product: ProductService, private alertCtrl: AlertController, 
-  private loadingCtrl: LoadingController, private platform: Platform, private app: App) {
-    let info;
+  private loadingCtrl: LoadingController, private platform: Platform, public cartService: CartProvider) {
     this.auth.checkCredential();
     this.getCategories();
+  }
+  
+  ionViewDidLoad() {    
+    this.cartService.load();
   }
  
   public getCategories() {
