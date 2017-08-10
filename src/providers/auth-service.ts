@@ -85,7 +85,6 @@ export class AuthService {
  
   public facebook() {
     let env = this;
-    let status:Boolean = false;
     let permissions = new Array<string>();      
     permissions = ["public_profile"];
 
@@ -228,6 +227,7 @@ export class AuthService {
 
   public logout() {
     this.currentUser = { name: 'Guest', id: 0, email: '', created_at: '', updated_at: '', role:'' };
+    this.token = null;
     this.userChanged.emit(this.currentUser);
     this.storage.clear();      
   }

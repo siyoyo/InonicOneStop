@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, LoadingController, Loading } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service';
 import { ReviewService } from '../../providers/review-service';
+import { CartProvider } from '../../providers/cart';
 
 /**
  * Generated class for the ProductDetail page.
@@ -19,24 +20,20 @@ export class ProductDetailPage {
   product:any;
   reviews:any;
   rating:any;
-  loading: Loading;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-  private loadingCtrl: LoadingController, private alertCtrl: AlertController,
-  private review: ReviewService, private auth: AuthService) {
-  
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private alertCtrl: AlertController, private review: ReviewService,
+    private auth: AuthService, public cartService: CartProvider) {
     this.product = this.navParams.get('product');
+   }
+
+  ionViewDidLoad() {
+    console.log('Cart : ',this.cartService);
     this.getReviews(); 
   }
 
-  ionViewDidLoad() {
-    // console.log(this.product);
-  }
-
   public getReviews() {
-    let access_token = this.auth.getCredential().access_token;
-    let type = this.auth.getCredential().token_type;
-    this.review.getReviews(access_token, type, this.product.id).subscribe(data => { 
+    this.review.getReviews(this.product.id).subscribe(data => { 
       this.reviews = data.data; 
       let sum = 0; 
       this.reviews.forEach(element => {
@@ -48,21 +45,17 @@ export class ProductDetailPage {
     });
   }
 
-  public goToPurchase(product) {
-    this.navCtrl.push('PurchaseDetailPage', {'product':product}, {animate: true, direction: 'forward'});
-  }
+  // public goToPurchase(product) {
+  //   this.auth.getUser().id == 0 ? 
+  //   this.navCtrl.push('LoginPage', {animate: true, direction: 'forward'}) :
+  //   this.navCtrl.push('PurchaseDetailPage', {'product':product}, {animate: true, direction: 'forward'});
+  // }
 
-  showLoading() {
-    this.loading = this.loadingCtrl.create({
-      content: 'Please wait...',
-      dismissOnPageChange: true
-    });
-    this.loading.present();
+  public addToCart() {
+    this.cartService.add(this.product);
   }
  
-  showError(text) {
-    this.loading.dismiss();
- 
+  showError(text) { 
     let alert = this.alertCtrl.create({
       title: 'Error',
       subTitle: text,

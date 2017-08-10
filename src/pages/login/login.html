@@ -37,12 +37,12 @@
                 </ion-col>
             </ion-row>
         </form>
+        <button ion-button class="register-btn" block clear (click)="forgotPassword()">Forgot your password?</button>
+        <button ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</button>
         <ion-row>
-            <ion-col class="signup-col">
-                <button ion-button class="register-btn" block clear (click)="forgotPassword()">Forgot your password?</button>
+            <ion-col class="signup-col" center>
                 <button ion-button class="facebook-btn" (click)="loginFacebook()">Login with Facebook</button>
                 <button ion-button class="google-btn" (click)="loginGoogle()">Login with Google</button>
-                <button ion-button class="register-btn" block clear (click)="createAccount()">Create New Account</button>
             </ion-col>
         </ion-row>
     </div>

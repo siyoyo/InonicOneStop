@@ -8,6 +8,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AuthService } from '../providers/auth-service';
 import { ProductService } from '../providers/product-service';
 import { ReviewService } from '../providers/review-service';
+import { CartProvider } from '../providers/cart';
 import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
@@ -61,7 +62,8 @@ const cloudSettings: CloudSettings = {
     PayPal,
     GooglePlus,
     Facebook,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CartProvider
   ]
 })
 export class AppModule {}

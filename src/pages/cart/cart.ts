@@ -12,7 +12,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-cart',
   templateUrl: 'cart.html',
 })
-export class Cart {
+export class CartPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController, Loading } from 'ionic-angular';
 
+import { Storage } from '@ionic/storage';
+
 import { AuthService } from '../../providers/auth-service';
 import { ProductService } from '../../providers/product-service';
 /**
@@ -17,10 +19,11 @@ import { ProductService } from '../../providers/product-service';
 export class CategoryPage {
   category:any;
   subcategories:any;
+  myInput:any;
   loading: Loading;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController,
-  private auth: AuthService, private product: ProductService, private loadingCtrl: LoadingController,) {
+  private auth: AuthService, private product: ProductService, private loadingCtrl: LoadingController, public storage: Storage) {
     this.category = this.navParams.get('category');
     this.getCategories(); 
   }
@@ -29,12 +32,10 @@ export class CategoryPage {
   //   console.log('ionViewDidLoad Category');
   // }
   public getCategories() {
-    
-    let access_token = this.auth.getCredential().access_token;
-    let type = this.auth.getCredential().token_type;
-    this.product.getCategory(access_token, type, this.category.id).subscribe(data => { 
-      this.subcategories = data;  
-      console.log(this.subcategories); 
+    this.product.getCategory(this.category.id).subscribe(data => { 
+      this.storage.set('subcategories', data);
+      this.subcategories = data;
+      // console.log('init', this.subcategories); 
     }, error => {
        this.showError(error);
     });
@@ -43,9 +44,29 @@ export class CategoryPage {
   public onProductClick(product) {
     this.navCtrl.push('ProductDetailPage', {'product':product}, {animate: true, direction: 'forward'});
   }
-  
+      
+  public onInput(searchbar){
+    var q = searchbar.srcElement.value;
+    this.storage.get('subcategories').then((value) => {
+      if(value) {
+        this.subcategories = value;
+        if(q) {
+          for(let subcategory of this.subcategories) {
+            subcategory.products = subcategory.products.filter((v) => {
+              if(v.product_name && q) {
+                if (v.product_name.toLowerCase().indexOf(q.toLowerCase()) > -1) { return true; }
+                return false;
+              }
+            });
+          }
+          // console.log('result : ', q, this.subcategories);
+        }
+      }
+    });
+  }
+    
   public goToHome() {    
-    this.navCtrl.setRoot('HomePage');
+    this.navCtrl.popToRoot();
   }
 
   showLoading() {
