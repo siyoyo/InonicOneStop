@@ -1,3 +1,8 @@
 page-tabs {
-
+    .tabs-md .tab-button {
+        color: #666 !important;
+    }
+    .tabs-md .tab-button[aria-selected=true] {
+        color: #AAA !important;
+    }
 }
