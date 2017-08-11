@@ -45,11 +45,11 @@ export class ProductDetailPage {
     });
   }
 
-  // public goToPurchase(product) {
-  //   this.auth.getUser().id == 0 ? 
-  //   this.navCtrl.push('LoginPage', {animate: true, direction: 'forward'}) :
-  //   this.navCtrl.push('PurchaseDetailPage', {'product':product}, {animate: true, direction: 'forward'});
-  // }
+  public goToPurchase(product) {
+    this.auth.getUser().id == 0 ? 
+    this.navCtrl.push('LoginPage', {animate: true, direction: 'forward'}) :
+    this.navCtrl.push('PurchaseDetailPage', {'product':product}, {animate: true, direction: 'forward'});
+  }
 
   public addToCart() {
     this.cartService.add(this.product);

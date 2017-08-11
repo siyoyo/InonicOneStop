@@ -6,13 +6,17 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>cart</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>cart</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+    <ion-list *ngFor="let product of cartService.cart">
+        <ion-item>{{product.product_name}}</ion-item>
+    </ion-list>
+    <h2>Total Price</h2>
+    <p>Rp. {{cartService.totalPrice}}</p>
 </ion-content>

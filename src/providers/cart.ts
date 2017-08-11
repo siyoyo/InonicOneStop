@@ -15,24 +15,31 @@ import 'rxjs/add/observable/throw';
 export class CartProvider {
 
   cart:any = [];
+  cartLengthEvent:any;
+  totalPrice:any;
 
   constructor(private http: Http, private storage: Storage) {
     // console.log('Hello CartServiceProvider Provider');
+    this.cartLengthEvent = new EventEmitter();
   }
 
   load() {
     this.storage.get('cart').then((value) => {
+      this.totalPrice = 0;
       if(value) { 
         this.cart = value; 
+        this.countPrice();
+        this.cartLengthEvent.emit(this.cart);
       }
-      console.log('Cart : ', this.cart);
+      // console.log('Cart : ', this.cart);
     });
   }
 
   add(product:any) {
     this.cart.push(product);
     this.storage.set('cart', this.cart);
-    console.log('Add Cart : ', this.cart);
+    this.cartLengthEvent.emit(this.cart);
+    // console.log('Add Cart : ', this.cart);
   }
 
   delete(product:any) {
@@ -43,7 +50,18 @@ export class CartProvider {
     }
     
     this.storage.set('cart', this.cart);
-    console.log('Delete Cart : ', this.cart);
+    this.cartLengthEvent.emit(this.cart);
+    // console.log('Delete Cart : ', this.cart);
   }
+
+  countPrice(){
+    console.log(this.cart); 
+    this.cart.forEach(key=> {
+      console.log(this.cart[key]); 
+      // this.totalPrice += this.cart[key].price;
+    });
+  }
+
+
 
 }

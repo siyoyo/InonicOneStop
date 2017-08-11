@@ -6,9 +6,8 @@
 -->
 
 <!-- pages/tabs/tabs.html -->
-<ion-tabs>
-    <!-- Indicates with tabsPage should handle each tab here -->
-    <!--<ion-tab [root]="tab3Root" tabTitle="Tab 3" tabIcon="cog"></ion-tab>
-  <ion-tab [root]="tab2Root" tabTitle="Tab 2" tabIcon="chatbubbles"></ion-tab>
-  <ion-tab [root]="tab1Root" tabTitle="Tab 1" tabIcon="pulse"></ion-tab>-->
+<ion-tabs color="eggplant" tabsPlacement="bottom">
+    <ion-tab tabIcon="home" tabTitle="Home" [root]="tab1"></ion-tab>
+    <ion-tab tabIcon="cart" [tabBadge]="badge" tabTitle="Cart" [root]="tab2" tabBadgeStyle="danger"></ion-tab>
+    <ion-tab tabIcon="person" tabTitle="Profile" [root]="tab3"></ion-tab>
 </ion-tabs>

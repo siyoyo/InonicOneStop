@@ -27,11 +27,12 @@ export class HomePage {
   constructor(private navCtrl: NavController, private navParams: NavParams, 
   private auth: AuthService, private product: ProductService, private alertCtrl: AlertController, 
   private loadingCtrl: LoadingController, private platform: Platform, public cartService: CartProvider) {
-    this.auth.checkCredential();
-    this.getCategories();
+
   }
   
-  ionViewDidLoad() {    
+  ionViewDidLoad() {        
+    this.auth.checkCredential();
+    this.getCategories();
     this.cartService.load();
   }
  
